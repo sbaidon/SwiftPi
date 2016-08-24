@@ -10,7 +10,7 @@ import Foundation
 
 class SwiftPi: NSObject{
     
-    private var port = 0
+    private var port = ""
     private var username = ""
     private var password = ""
     private var IP = ""
@@ -46,14 +46,33 @@ class SwiftPi: NSObject{
     }
     
     
-    override init(){
-    
-    
+    init(username: String, password: String, port: String){
+        self.username = username
+        self.password = password
+        self.port = port
     }
+    
+    func setUsername(username: String)
+    {
+        self.username = username
+    }
+        
+    func setPassword(password: String)
+    {
+            self.password = password
+    }
+    
+    func setPort(port: String)
+    {
+            self.port = port
+    }
+    
+
     func setIP(newIP: String)
     {
         self.IP = newIP
     }
+    
     
     func setPIN(pin: GPIO, state: String)
     {
@@ -63,6 +82,25 @@ class SwiftPi: NSObject{
     func getPIN(pin: GPIO) -> GPIO    {
         return pin
     }
+    
+    func getIp() -> String {
+        return self.IP
+    }
+    
+    func getPort() -> String {
+        return self.port
+    }
+    
+    func getUsername() -> String {
+        return self.username
+    }
+    
+    func getPassword() -> String {
+        return self.password
+    }
+    
+    
+    
     func setMode(pin: GPIO)
     {
         
@@ -70,6 +108,29 @@ class SwiftPi: NSObject{
     
     func getMode(pin: GPIO)-> GPIO
     {
+        // set up the base64-encoded credentials
+        let loginString = NSString(format: "%@:%@", self.getUsername(), password)
+        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+        let base64LoginString = loginData.base64EncodedStringWithOptions([])
+        
+        // create the request
+        let url = NSURL(string: "http://" + ip + ":8000/GPIO/2/function")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        // fire off the request
+        var response: NSURLResponse?
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            
+            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString!)")
+            lblMode.text = responseString! as String
+        } catch (let e) {
+            print(e)
+        }
+        
         return pin
     }
     
