@@ -45,6 +45,12 @@ class SwiftPi: NSObject{
         
     }
     
+    enum MODE : String {
+        case IN = "in"
+        case OUT = "out"
+        
+    }
+    
     
     init(username: String, password: String, port: String){
         self.username = username
@@ -99,14 +105,32 @@ class SwiftPi: NSObject{
         return self.password
     }
     
-    
-    
-    func setMode(pin: GPIO)
+    func setMode(pin: GPIO, mode: MODE) -> String
     {
+        let loginString = NSString(format: "%@:%@", self.getUsername(), password)
+        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+        let base64LoginString = loginData.base64EncodedStringWithOptions([])
+
+        let urlString = String(format:"http://%@:%@/GPIO/%@/function/%@", getIp(), getPort(), pin.rawValue, mode.rawValue)
+        let url = NSURL(string: urlString)
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
+        var response: NSURLResponse?
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString!)")
+            return responseString as! String
+        } catch (let e) {
+            print(e)
+            return "Error"
+        }
+
     }
     
-    func getMode(pin: GPIO)-> GPIO
+    func getMode(pin: GPIO)-> String
     {
         // set up the base64-encoded credentials
         let loginString = NSString(format: "%@:%@", self.getUsername(), password)
@@ -114,7 +138,8 @@ class SwiftPi: NSObject{
         let base64LoginString = loginData.base64EncodedStringWithOptions([])
         
         // create the request
-        let url = NSURL(string: "http://" + ip + ":8000/GPIO/2/function")
+        let urlString = String(format:"http://%@:%@/GPIO/%@/function", getIp(), getPort(), pin.rawValue)
+        let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
@@ -123,27 +148,41 @@ class SwiftPi: NSObject{
         var response: NSURLResponse?
         do {
             let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-            
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString!)")
-            lblMode.text = responseString! as String
+            return responseString as! String
         } catch (let e) {
             print(e)
+            return "Error"
         }
-        
-        return pin
     }
     
-
-
-
-
-
-
-
-
-
-
+    func getValue(pin: GPIO)-> String
+    {
+        // set up the base64-encoded credentials
+        let loginString = NSString(format: "%@:%@", self.getUsername(), password)
+        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+        let base64LoginString = loginData.base64EncodedStringWithOptions([])
+        
+        // create the request
+        let urlString = String(format:"http://%@:%@/GPIO/%@/value", getIp(), getPort(), pin.rawValue)
+        let url = NSURL(string: urlString)
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        // fire off the request
+        var response: NSURLResponse?
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString!)")
+            return responseString as! String
+        } catch (let e) {
+            print(e)
+            return "Error"
+        }
+    }
 
 
 }
