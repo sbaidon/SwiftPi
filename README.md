@@ -24,14 +24,11 @@ pod "SwiftPi"
 
 ```swift
 
-var swiftPi = SwifPi(username: "username",password: "password", ip:"ip", port:"port")
-
-
-swifPi.getMode(.ONE)
+var mode = swifPi.getMode(.ONE)
 
 swiftPi.setMode(.ONE, .IN)
 
-swiftPi.getValue(.ONE)
+var value = swiftPi.getValue(.ONE)
 
 swiftPi.setValue(.ONE, .ON)
 
