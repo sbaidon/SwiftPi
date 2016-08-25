@@ -16,6 +16,8 @@ Have WebIOPi running on your raspberry
 Download:
 http://webiopi.trouch.com/
 
+sudo webiopi -d -c /etc/webiopi/config
+
 
 ## Installation
 
