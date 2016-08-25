@@ -120,7 +120,6 @@ public class SwiftPi: NSObject{
     {
         return Manager.sharedInstance.setMode(username, password: password, ip: IP, port: port, pin: pin, state: mode)
     }
-    
 
     public func getMode(pin: GPIO)-> String
     {
@@ -131,12 +130,33 @@ public class SwiftPi: NSObject{
     {
         return Manager.sharedInstance.getValue(username, password: password, ip: IP, port: port, pin: pin)
     }
+    
     public func setValue(pin: GPIO, value: VALUE)-> String
     {
         return Manager.sharedInstance.setValue(username, password: password, ip: IP, port: port, pin: pin, value: value)
     }
+    
+    //Asynchronous calls
+    public func setModeInBackground(pin: GPIO, mode: MODE) -> String
+    {
+        return Manager.sharedInstance.setModeInBackground(username, password: password, ip: IP, port: port, pin: pin, state: mode)
+    }
  
-
+    public func getModeInBackground(pin: GPIO)-> String
+    {
+        return Manager.sharedInstance.getModeInBackground(username, password: password, ip: IP, port: port, pin: pin)
+    }
+    
+    public func getValueInBackground(pin: GPIO)-> String
+    {
+        return Manager.sharedInstance.getValueInBackground(username, password: password, ip: IP, port: port, pin: pin)
+    }
+    
+    public func setValueInBackground(pin: GPIO, value: VALUE)-> String
+    {
+        return Manager.sharedInstance.setValueInBackground(username, password: password, ip: IP, port: port, pin: pin, value: value)
+    }
+    
 
 
 }
