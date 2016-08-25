@@ -11,6 +11,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+Have WebIOPi running on your raspberry
+
+Download:
+http://webiopi.trouch.com/
+
+
 ## Installation
 
 SwiftPi is available through [CocoaPods](http://cocoapods.org). To install
