@@ -37,7 +37,7 @@ swiftPi.setValue(.ONE, .ON)
 
 ## Author
 
-sbaidon, ardzoht, toniohdez43, 
+sbaidon, ardzoht, toniohdez43, PkBadger
 
 ## License
 
