@@ -22,7 +22,7 @@ pod "SwiftPi"
 
 ## Author
 
-sbaidon, ardzoht, toniohdez43
+sbaidon, ardzoht, toniohdez43, 
 
 ## License
 
