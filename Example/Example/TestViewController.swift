@@ -10,14 +10,14 @@ import UIKit
 import SwiftPi
 
 class TestViewController: UIViewController {
-    let swiftPi = SwiftPi(username:"webiopi", password: "raspberry", ip:"10.33.27.92", port: "8000")
+    let swiftPi = SwiftPi(username:"webiopi", password: "raspberry", ip:"10.33.10.18", port: "8000")
     @IBOutlet weak var lblMode: UILabel!
     
     @IBOutlet weak var swMode: UISegmentedControl!
     
     @IBAction func getMode(sender: AnyObject) {
         // set up the base64-encoded credentials
-        swiftPi.getMode(.TWO)
+        lblMode.text = swiftPi.getMode(.TWO)
     }
     
     @IBAction func setMode(sender: AnyObject) {
@@ -34,6 +34,6 @@ class TestViewController: UIViewController {
             state = .IN
         }
         print(state)
-        swiftPi.setMode(.TWO, mode: state)
+        lblMode.text = swiftPi.setMode(.TWO, mode: state)
     }
 }

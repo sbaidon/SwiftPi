@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="S5E-L3-HBY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cZm-0K-FCm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7s-qB-6wc">
@@ -47,6 +47,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="lblMode" destination="FVL-9L-PFT" id="vhA-fF-4pG"/>
                         <outlet property="swMode" destination="X5W-tI-yPI" id="jYe-0b-6i5"/>

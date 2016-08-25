@@ -12,7 +12,8 @@ import Foundation
 class Manager {
     static let sharedInstance = Manager()
     private init() {} //This prevents others from using the default '()' initializer for this class.
-    let swiftPi = SwiftPi(username: "", password: "", ip: "", port: "" )
+    
+    
     func loginString (username: String, password: String) -> String
     {
         // set up the base64-encoded credentials
@@ -46,8 +47,8 @@ class Manager {
             }
             
         }
-        let url = NSURL(fileURLWithPath: urlStr)
-        let request = NSMutableURLRequest(URL: url)
+        let url = NSURL(string: urlStr)
+        let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = action
         request.setValue("Basic \(loginString(username, password: password))", forHTTPHeaderField: "Authorization")
         return request
