@@ -23,7 +23,7 @@ class Manager {
         return base64LoginString
     }
     
-    func httpRequest (isValue: Bool,username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, state: SwiftPi.MODE?) -> NSURLRequest
+    func httpRequest (isValue: Bool,username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, state: SwiftPi.MODE?, value: SwiftPi.VALUE?) -> NSURLRequest
     {
         
         var action = ""
@@ -42,8 +42,16 @@ class Manager {
             }
             else
             {
-                urlStr = "http://\(ip):\(port)/GPIO/\(pin.rawValue)/function"
-                action = "GET"
+                if let val = value
+                {
+                    urlStr = "http://\(ip):\(port)/GPIO/\(pin.rawValue)/value/\(val.rawValue)"
+                    action = "POST"
+                }
+                else
+                {
+                    urlStr = "http://\(ip):\(port)/GPIO/\(pin.rawValue)/function"
+                    action = "GET"
+                }
             }
             
         }
@@ -72,7 +80,7 @@ class Manager {
     func getMode(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO) -> String
     {
         // create the request
-        let request = httpRequest(false, username:username, password: password, ip: ip, port: port,pin:pin,state: nil)
+        let request = httpRequest(false, username:username, password: password, ip: ip, port: port,pin:pin,state: nil, value: nil)
         // fire off the request
         let response = fireRequest(request)
         return response
@@ -81,7 +89,7 @@ class Manager {
     func setMode(username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.MODE ) -> String
     {
         // create the request
-        let request = httpRequest(false,username:username, password: password, ip: ip, port: port, pin: pin, state: state)
+        let request = httpRequest(false,username:username, password: password, ip: ip, port: port, pin: pin, state: state, value: nil)
         // fire off the request
         let response = fireRequest(request)
         return response
@@ -90,11 +98,21 @@ class Manager {
     func getValue(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO)-> String
     {
         // create the request
-        let request = httpRequest(true, username:username, password: password, ip: ip, port: port,pin:pin,state: nil)
+        let request = httpRequest(true, username:username, password: password, ip: ip, port: port,pin:pin,state: nil, value: nil)
         // fire off the request
         let response = fireRequest(request)
         return response
     }
+    
+    func setValue(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.VALUE)-> String
+    {
+        // create the request
+        let request = httpRequest(false, username:username, password: password, ip: ip, port: port,pin:pin,state: nil, value: value)
+        // fire off the request
+        let response = fireRequest(request)
+        return response
+    }
+
 
     
     

@@ -52,7 +52,11 @@ public class SwiftPi: NSObject{
         case OUT = "out"
         
     }
-    
+    public enum VALUE : String {
+        case OFF = "0"
+        case ON = "1"
+        
+    }
     
     
 
@@ -126,6 +130,10 @@ public class SwiftPi: NSObject{
     public func getValue(pin: GPIO)-> String
     {
         return Manager.sharedInstance.getValue(username, password: password, ip: IP, port: port, pin: pin)
+    }
+    public func setValue(pin: GPIO, value: VALUE)-> String
+    {
+        return Manager.sharedInstance.setValue(username, password: password, ip: IP, port: port, pin: pin, value: value)
     }
  
 
