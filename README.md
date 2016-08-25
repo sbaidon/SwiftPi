@@ -23,6 +23,7 @@ pod "SwiftPi"
 ## How to use
 
 ```swift
+var swiftPi = SwifPi(username: "username", password: "password", ip:"ip", port: "port")
 
 var mode = swifPi.getMode(.ONE)
 
