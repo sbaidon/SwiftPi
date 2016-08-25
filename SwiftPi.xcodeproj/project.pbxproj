@@ -10,7 +10,9 @@
 		9CFF3DDE1D6CD052005753FF /* SwiftPi.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CFF3DDD1D6CD052005753FF /* SwiftPi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CFF3DE51D6CD052005753FF /* SwiftPi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFF3DDA1D6CD052005753FF /* SwiftPi.framework */; };
 		9CFF3DEA1D6CD052005753FF /* SwiftPiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3DE91D6CD052005753FF /* SwiftPiTests.swift */; };
-		9CFF3DF51D6CD23B005753FF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3DF41D6CD23B005753FF /* File.swift */; };
+		9CFF3DF51D6CD23B005753FF /* SwiftPi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3DF41D6CD23B005753FF /* SwiftPi.swift */; };
+		9CFF3DF81D6E1CC0005753FF /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3DF71D6E1CC0005753FF /* Manager.swift */; };
+		9CFF3E421D6E7E63005753FF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3E3F1D6E7E63005753FF /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,11 @@
 		9CFF3DE41D6CD052005753FF /* SwiftPiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFF3DE91D6CD052005753FF /* SwiftPiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPiTests.swift; sourceTree = "<group>"; };
 		9CFF3DEB1D6CD052005753FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CFF3DF41D6CD23B005753FF /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		9CFF3DF41D6CD23B005753FF /* SwiftPi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPi.swift; sourceTree = "<group>"; };
+		9CFF3DF71D6E1CC0005753FF /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		9CFF3E3E1D6E7E63005753FF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9CFF3E3F1D6E7E63005753FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9CFF3E401D6E7E63005753FF /* SwiftPi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftPi.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 		9CFF3DD01D6CD052005753FF = {
 			isa = PBXGroup;
 			children = (
+				9CFF3E3D1D6E7E46005753FF /* Metadata */,
 				9CFF3DDC1D6CD052005753FF /* SwiftPi */,
 				9CFF3DE81D6CD052005753FF /* SwiftPiTests */,
 				9CFF3DDB1D6CD052005753FF /* Products */,
@@ -75,7 +82,8 @@
 			children = (
 				9CFF3DDD1D6CD052005753FF /* SwiftPi.h */,
 				9CFF3DDF1D6CD052005753FF /* Info.plist */,
-				9CFF3DF41D6CD23B005753FF /* File.swift */,
+				9CFF3DF41D6CD23B005753FF /* SwiftPi.swift */,
+				9CFF3DF71D6E1CC0005753FF /* Manager.swift */,
 			);
 			path = SwiftPi;
 			sourceTree = "<group>";
@@ -87,6 +95,16 @@
 				9CFF3DEB1D6CD052005753FF /* Info.plist */,
 			);
 			path = SwiftPiTests;
+			sourceTree = "<group>";
+		};
+		9CFF3E3D1D6E7E46005753FF /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				9CFF3E3E1D6E7E63005753FF /* LICENSE */,
+				9CFF3E3F1D6E7E63005753FF /* README.md */,
+				9CFF3E401D6E7E63005753FF /* SwiftPi.podspec */,
+			);
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CFF3DF51D6CD23B005753FF /* File.swift in Sources */,
+				9CFF3E421D6E7E63005753FF /* README.md in Sources */,
+				9CFF3DF51D6CD23B005753FF /* SwiftPi.swift in Sources */,
+				9CFF3DF81D6E1CC0005753FF /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -301,7 +321,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,6 +341,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftPi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.SwiftPi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,6 +360,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftPi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.SwiftPi;
 				PRODUCT_NAME = "$(TARGET_NAME)";

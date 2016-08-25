@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "SwiftPi_Example.app"
-               BlueprintName = "SwiftPi_Example"
-               ReferencedContainer = "container:SwiftPi.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SwiftPi_Tests.xctest"
-               BlueprintName = "SwiftPi_Tests"
+               BlueprintIdentifier = "9CFF3DD91D6CD052005753FF"
+               BuildableName = "SwiftPi.framework"
+               BlueprintName = "SwiftPi"
                ReferencedContainer = "container:SwiftPi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SwiftPi_Tests.xctest"
-               BlueprintName = "SwiftPi_Tests"
+               BlueprintIdentifier = "9CFF3DE31D6CD052005753FF"
+               BuildableName = "SwiftPiTests.xctest"
+               BlueprintName = "SwiftPiTests"
                ReferencedContainer = "container:SwiftPi.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SwiftPi_Example.app"
-            BlueprintName = "SwiftPi_Example"
+            BlueprintIdentifier = "9CFF3DD91D6CD052005753FF"
+            BuildableName = "SwiftPi.framework"
+            BlueprintName = "SwiftPi"
             ReferencedContainer = "container:SwiftPi.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SwiftPi_Example.app"
-            BlueprintName = "SwiftPi_Example"
+            BlueprintIdentifier = "9CFF3DD91D6CD052005753FF"
+            BuildableName = "SwiftPi.framework"
+            BlueprintName = "SwiftPi"
             ReferencedContainer = "container:SwiftPi.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -94,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SwiftPi_Example.app"
-            BlueprintName = "SwiftPi_Example"
+            BlueprintIdentifier = "9CFF3DD91D6CD052005753FF"
+            BuildableName = "SwiftPi.framework"
+            BlueprintName = "SwiftPi"
             ReferencedContainer = "container:SwiftPi.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

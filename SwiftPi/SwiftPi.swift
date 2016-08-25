@@ -8,13 +8,14 @@
 
 import Foundation
 
-class SwiftPi: NSObject{
+public class SwiftPi: NSObject{
     
     private var port = ""
     private var username = ""
     private var password = ""
     private var IP = ""
-    enum GPIO : String{
+    
+   public enum GPIO : String{
     
         case ONE = "1"
         case TWO = "2"
@@ -44,69 +45,77 @@ class SwiftPi: NSObject{
         case TWENTYSIX = "26"
         
     }
+ 
     
-    enum MODE : String {
+    public enum MODE : String {
         case IN = "in"
         case OUT = "out"
         
     }
     
     
-    init(username: String, password: String, port: String){
+    
+
+    
+    
+    public init(username: String, password: String, ip: String, port: String){
+        self.IP = ip
         self.username = username
         self.password = password
         self.port = port
     }
     
-    func setUsername(username: String)
+    public func setUsername(username: String)
     {
         self.username = username
     }
         
-    func setPassword(password: String)
+    public func setPassword(password: String)
     {
             self.password = password
     }
     
-    func setPort(port: String)
+    public func setPort(port: String)
     {
             self.port = port
     }
     
 
-    func setIP(newIP: String)
+    public func setIP(newIP: String)
     {
         self.IP = newIP
     }
     
     
-    func setPIN(pin: GPIO, state: String)
+    public func setPIN(pin: GPIO, state: String)
     {
         
     }
     
-    func getPIN(pin: GPIO) -> GPIO    {
+    public func getPIN(pin: GPIO) -> GPIO    {
         return pin
     }
     
-    func getIp() -> String {
+    public func getIp() -> String {
         return self.IP
     }
     
-    func getPort() -> String {
+    public func getPort() -> String {
         return self.port
     }
     
-    func getUsername() -> String {
+    public func getUsername() -> String {
         return self.username
     }
     
-    func getPassword() -> String {
+    public func getPassword() -> String {
         return self.password
     }
     
-    func setMode(pin: GPIO, mode: MODE) -> String
+    public func setMode(pin: GPIO, mode: MODE) -> String
     {
+        return Manager.sharedInstance.setMode(username, password: password, ip: IP, port: port, pin: pin, state: mode)
+    /*
         let loginString = NSString(format: "%@:%@", self.getUsername(), password)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
         let base64LoginString = loginData.base64EncodedStringWithOptions([])
@@ -127,11 +136,16 @@ class SwiftPi: NSObject{
             print(e)
             return "Error"
         }
+ */
 
     }
     
-    func getMode(pin: GPIO)-> String
+
+    public func getMode(pin: GPIO)-> String
     {
+        return Manager.sharedInstance.getMode(username, password: password, ip: IP, port: port, pin: pin)
+
+    /*
         // set up the base64-encoded credentials
         let loginString = NSString(format: "%@:%@", self.getUsername(), password)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
@@ -155,11 +169,15 @@ class SwiftPi: NSObject{
             print(e)
             return "Error"
         }
+    */
     }
     
-    func getValue(pin: GPIO)-> String
+    public func getValue(pin: GPIO)-> String
     {
+        return Manager.sharedInstance.getValue(username, password: password, ip: IP, port: port, pin: pin)
         // set up the base64-encoded credentials
+        
+    /*
         let loginString = NSString(format: "%@:%@", self.getUsername(), password)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
         let base64LoginString = loginData.base64EncodedStringWithOptions([])
@@ -182,7 +200,11 @@ class SwiftPi: NSObject{
             print(e)
             return "Error"
         }
+    */
+ 
     }
+ 
+
 
 
 }
