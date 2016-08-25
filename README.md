@@ -20,6 +20,24 @@ it, simply add the following line to your Podfile:
 pod "SwiftPi"
 ```
 
+## How to use
+
+```swift
+
+var swiftPi = SwifPi(username: "username",password: "password", ip:"ip", port:"port")
+
+
+swifPi.getMode(.ONE)
+
+swiftPi.setMode(.ONE, .IN)
+
+swiftPi.getValue(.ONE)
+
+swiftPi.setValue(.ONE, .ON)
+
+  
+```
+
 ## Author
 
 sbaidon, ardzoht, toniohdez43, 
