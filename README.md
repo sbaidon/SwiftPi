@@ -69,6 +69,59 @@ swiftPi.setModeInBackground(.ONE, .IN) { (result) -> Void in
   
 ```
 
+## GPIO Options
+
+```swift
+  public enum GPIO : String{
+    
+        case ONE = "1"
+        case TWO = "2"
+        case THREE = "3"
+        case FOUR = "4"
+        case FIVE = "5"
+        case SIX = "6"
+        case SEVEN = "7"
+        case EIGHT = "8"
+        case NINE = "9"
+        case TEN = "10"
+        case ELEVEN = "11"
+        case TWELVE = "12"
+        case THIRTEEN = "13"
+        case FOURTEEN = "14"
+        case FIFTEEN = "15"
+        case SIXTEEN = "16"
+        case SEVENTEEN = "17"
+        case EIGHTEEN = "18"
+        case NINETEEN = "19"
+        case TWENTY = "20"
+        case TWENTYONE = "21"
+        case TWENTYTWO = "22"
+        case TWENTYTHREE = "23"
+        case TWENTYFOUR = "24"
+        case TWENTYFIVE = "25"
+        case TWENTYSIX = "26"
+        }
+
+```
+
+### Modes and values Options
+
+```swift
+
+    
+    public enum MODE : String {
+        case IN = "in"
+        case OUT = "out"
+        
+    }
+    public enum VALUE : String {
+        case OFF = "0"
+        case ON = "1"
+        
+    }
+
+```
+
 ## Author
 
 sbaidon, ardzoht, toniohdez43, PkBadger
