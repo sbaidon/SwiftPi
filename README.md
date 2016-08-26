@@ -104,22 +104,24 @@ swiftPi.setModeInBackground(.ONE, .IN) { (result) -> Void in
 
 ```
 
-### Modes and values Options
+## Modes
 
 ```swift
-
-    
     public enum MODE : String {
         case IN = "in"
         case OUT = "out"
         
     }
-    public enum VALUE : String {
+```
+
+## Values
+
+```swift
+   public enum VALUE : String {
         case OFF = "0"
         case ON = "1"
         
     }
-
 ```
 
 ## Author
