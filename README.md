@@ -33,6 +33,8 @@ pod "SwiftPi"
 
 Parameters should be of type GPIO, MODE or VALUE so errors can be avoided, enums provided can be seen below
 
+### GPIO
+
 ```swift
   public enum GPIO : String{
         case ONE = "1"
@@ -64,7 +66,7 @@ Parameters should be of type GPIO, MODE or VALUE so errors can be avoided, enums
         }
 ```
 
-## Modes
+### Modes
 
 ```swift
     public enum MODE : String {
@@ -74,7 +76,7 @@ Parameters should be of type GPIO, MODE or VALUE so errors can be avoided, enums
     }
 ```
 
-## Values
+### Values
 
 ```swift
    public enum VALUE : String {
