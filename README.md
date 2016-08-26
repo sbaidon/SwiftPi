@@ -28,11 +28,13 @@ it, simply add the following line to your Podfile:
 pod "SwiftPi"
 ```
 
+
 ## GPIO Options
+
+Parameters should be of type GPIO, MODE or VALUE 
 
 ```swift
   public enum GPIO : String{
-    
         case ONE = "1"
         case TWO = "2"
         case THREE = "3"
@@ -60,7 +62,6 @@ pod "SwiftPi"
         case TWENTYFIVE = "25"
         case TWENTYSIX = "26"
         }
-
 ```
 
 ## Modes
