@@ -28,47 +28,6 @@ it, simply add the following line to your Podfile:
 pod "SwiftPi"
 ```
 
-## How to use
-
-```swift
-var swiftPi = SwifPi(username: "username", password: "password", ip:"ip", port: "port")
-
-var mode = swifPi.getMode(.ONE)
-
-swiftPi.setMode(.ONE, .IN)
-
-var value = swiftPi.getValue(.ONE)
-
-swiftPi.setValue(.ONE, .ON)
-
-//Asynchronous calls
-
-swiftPi.getModeInBackground(.ONE){ (result) -> Void in
-            if let res = result {
-              //callback code       
-        } }
-
-swiftPi.getValueInBackround(.ONE){ (result) -> Void in
-            if let res = result {
-                //callback code
-                
-            }
-        }
-        
-swiftPi.setValueInBackground(.ONE, .ON) { (result) -> Void in
-            if let res = result {
-                //callback code
-            }
-        }
-
-swiftPi.setModeInBackground(.ONE, .IN) { (result) -> Void in
-            if let res = result {
-                //callback code
-            }
-        }
-  
-```
-
 ## GPIO Options
 
 ```swift
@@ -122,6 +81,47 @@ swiftPi.setModeInBackground(.ONE, .IN) { (result) -> Void in
         case ON = "1"
         
     }
+```
+
+## How to use
+
+```swift
+var swiftPi = SwifPi(username: "username", password: "password", ip:"ip", port: "port")
+
+var mode = swifPi.getMode(.ONE)
+
+swiftPi.setMode(.ONE, .IN)
+
+var value = swiftPi.getValue(.ONE)
+
+swiftPi.setValue(.ONE, .ON)
+
+//Asynchronous calls
+
+swiftPi.getModeInBackground(.ONE){ (result) -> Void in
+            if let res = result {
+              //callback code       
+        } }
+
+swiftPi.getValueInBackround(.ONE){ (result) -> Void in
+            if let res = result {
+                //callback code
+                
+            }
+        }
+        
+swiftPi.setValueInBackground(.ONE, .ON) { (result) -> Void in
+            if let res = result {
+                //callback code
+            }
+        }
+
+swiftPi.setModeInBackground(.ONE, .IN) { (result) -> Void in
+            if let res = result {
+                //callback code
+            }
+        }
+  
 ```
 
 ## Author
