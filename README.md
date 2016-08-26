@@ -19,6 +19,8 @@ Documentation: http://webiopi.trouch.com/RESTAPI.html
 
 How to run WebIOPi : sudo webiopi -d -c /etc/webiopi/config
 
+WebIOPi-0.7.1 Patch for Raspberry B+, Pi2, and Pi3: https://github.com/doublebind/raspi
+
 
 ## Installation
 
