@@ -13,10 +13,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Have WebIOPi running on your raspberry
 
-Download:
-http://webiopi.trouch.com/
+Download: http://webiopi.trouch.com/
 
-sudo webiopi -d -c /etc/webiopi/config
+Documentation: http://webiopi.trouch.com/RESTAPI.html
+
+How to run WebIOPi : sudo webiopi -d -c /etc/webiopi/config
 
 
 ## Installation
