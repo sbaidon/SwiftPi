@@ -137,24 +137,24 @@ public class SwiftPi: NSObject{
     }
     
     //Asynchronous calls
-    public func setModeInBackground(pin: GPIO, mode: MODE) -> String
+    public func setModeInBackground(pin: GPIO, mode: MODE, onCompletion: ((result:String?) -> Void)!)
     {
-        return Manager.sharedInstance.setModeInBackground(username, password: password, ip: IP, port: port, pin: pin, state: mode)
+        Manager.sharedInstance.setModeInBackground(username, password: password, ip: IP, port: port, pin: pin, state: mode, onCompletion: onCompletion)
     }
  
-    public func getModeInBackground(pin: GPIO)-> String
+    public func getModeInBackground(pin: GPIO, onCompletion: ((result:String?) -> Void)!)
     {
-        return Manager.sharedInstance.getModeInBackground(username, password: password, ip: IP, port: port, pin: pin)
+       Manager.sharedInstance.getModeInBackground(username, password: password, ip: IP, port: port, pin: pin, onCompletion: onCompletion)
     }
     
-    public func getValueInBackground(pin: GPIO)-> String
+    public func getValueInBackground(pin: GPIO, onCompletion: ((result:String?) -> Void)!)
     {
-        return Manager.sharedInstance.getValueInBackground(username, password: password, ip: IP, port: port, pin: pin)
+        Manager.sharedInstance.getValueInBackground(username, password: password, ip: IP, port: port, pin: pin, onCompletion: onCompletion)
     }
     
-    public func setValueInBackground(pin: GPIO, value: VALUE)-> String
+    public func setValueInBackground(pin: GPIO, value: VALUE, onCompletion: ((result:String?) -> Void)!)
     {
-        return Manager.sharedInstance.setValueInBackground(username, password: password, ip: IP, port: port, pin: pin, value: value)
+        Manager.sharedInstance.setValueInBackground(username, password: password, ip: IP, port: port, pin: pin, value: value, onCompletion: onCompletion)
     }
     
 

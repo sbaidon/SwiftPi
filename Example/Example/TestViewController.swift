@@ -20,19 +20,41 @@ class TestViewController: UIViewController {
     
     @IBAction func getMode(sender: AnyObject) {
         // set up the base64-encoded credentials
-        lblMode.text = swiftPi.getMode(.TWO)
+        
+        swiftPi.getModeInBackground(.TWO){ (result) -> Void in
+            if let res = result {
+                print(res)
+                self.lblMode.text = res
+                
+            }
+        }
+        lblMode.text = "Cargando..."
     }
     
     @IBAction func valueChanged(sender: AnyObject)
     {
         if swValue.on
         {
-            lblValue.text = swiftPi.setValue(.TWO, value: .ON)
+            swiftPi.setValueInBackground(.TWO, value: .ON) { (result) -> Void in
+                if let res = result {
+                    print(res)
+                    self.lblValue.text = res
+                    
+                }
+            }
+
         }
         else
         {
-            lblValue.text = swiftPi.setValue(.TWO, value: .OFF)
+            swiftPi.setValueInBackground(.TWO, value: .OFF) { (result) -> Void in
+                if let res = result {
+                    print(res)
+                    self.lblValue.text = res
+                    
+                }
+            }
         }
+        lblValue.text = "Cargando..."
     }
     
     @IBAction func setMode(sender: AnyObject) {
@@ -49,6 +71,16 @@ class TestViewController: UIViewController {
             state = .IN
         }
         print(state)
-        lblMode.text = swiftPi.setMode(.TWO, mode: state)
+        
+        swiftPi.setModeInBackground(.TWO, mode: state){ (result) -> Void in
+            if let res = result {
+                print(res)
+                self.lblMode.text = res
+                
+            }
+        }
+
+        
+        lblMode.text = "Cargando..."
     }
 }
