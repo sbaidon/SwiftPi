@@ -29,9 +29,9 @@ pod "SwiftPi"
 ```
 
 
-## GPIO Options
+## Options
 
-Parameters should be of type GPIO, MODE or VALUE 
+Parameters should be of type GPIO, MODE or VALUE so errors can be avoided, enums provided can be seen below
 
 ```swift
   public enum GPIO : String{
