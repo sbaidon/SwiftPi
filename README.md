@@ -41,6 +41,31 @@ var value = swiftPi.getValue(.ONE)
 
 swiftPi.setValue(.ONE, .ON)
 
+//Asynchronous calls
+
+swiftPi.getModeInBackground(.ONE){ { (result) -> Void in
+            if let res = result {
+              //callback code       
+        } }
+
+swiftPi.getValueInBackround(.ONE){ (result) -> Void in
+            if let res = result {
+                //callback code
+                
+            }
+        }
+        
+swiftPi.setValueInBackground(.ONE, .ON) { (result) -> Void in
+            if let res = result {
+                //callback code
+            }
+        }
+
+swiftPi.setModeInBackground(.ONE, .IN) { (result) -> Void in
+            if let res = result {
+                //callback code
+            }
+        }
   
 ```
 
