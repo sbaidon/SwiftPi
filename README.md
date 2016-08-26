@@ -43,7 +43,7 @@ swiftPi.setValue(.ONE, .ON)
 
 //Asynchronous calls
 
-swiftPi.getModeInBackground(.ONE){ { (result) -> Void in
+swiftPi.getModeInBackground(.ONE){ (result) -> Void in
             if let res = result {
               //callback code       
         } }
