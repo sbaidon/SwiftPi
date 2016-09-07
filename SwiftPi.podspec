@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftPi'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SwiftPi.'
+  s.summary          = 'Control Raspberrys GPIOs with Swift'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,16 +21,16 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/SwiftPi'
+  s.homepage         = 'https://github.com/sbaidon/SwiftPi'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'sbaidon' => 'sbaidon@outlook.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/SwiftPi.git', :tag => s.version.to_s }
+  s.author           = { 'sbaidon, toniohdez43, ardzoth, pkbadger93' => 'sbaidon@outlook.com' }
+  s.source           = { :git => 'https://github.com/sbaidon/SwiftPi.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SwiftPi/Classes/**/*'
+  s.source_files = 'SwiftPi/**/*'
   
   # s.resource_bundles = {
   #   'SwiftPi' => ['SwiftPi/Assets/*.png']
