@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class SwiftPi: NSObject{
+open class SwiftPi: NSObject{
     
-    private var port = ""
-    private var username = ""
-    private var password = ""
-    private var IP = ""
+    fileprivate var port = ""
+    fileprivate var username = ""
+    fileprivate var password = ""
+    fileprivate var IP = ""
     
    public enum GPIO : String{
     
@@ -69,90 +69,90 @@ public class SwiftPi: NSObject{
         self.port = port
     }
     
-    public func setUsername(username: String)
+    open func setUsername(_ username: String)
     {
         self.username = username
     }
         
-    public func setPassword(password: String)
+    open func setPassword(_ password: String)
     {
             self.password = password
     }
     
-    public func setPort(port: String)
+    open func setPort(_ port: String)
     {
             self.port = port
     }
     
 
-    public func setIP(newIP: String)
+    open func setIP(_ newIP: String)
     {
         self.IP = newIP
     }
     
     
-    public func setPIN(pin: GPIO, state: String)
+    open func setPIN(_ pin: GPIO, state: String)
     {
         
     }
     
-    public func getPIN(pin: GPIO) -> GPIO    {
+    open func getPIN(_ pin: GPIO) -> GPIO    {
         return pin
     }
     
-    public func getIp() -> String {
+    open func getIp() -> String {
         return self.IP
     }
     
-    public func getPort() -> String {
+    open func getPort() -> String {
         return self.port
     }
     
-    public func getUsername() -> String {
+    open func getUsername() -> String {
         return self.username
     }
     
-    public func getPassword() -> String {
+    open func getPassword() -> String {
         return self.password
     }
     
-    public func setMode(pin: GPIO, mode: MODE) -> String
+    open func setMode(_ pin: GPIO, mode: MODE) -> String
     {
         return Manager.sharedInstance.setMode(username, password: password, ip: IP, port: port, pin: pin, state: mode)
     }
 
-    public func getMode(pin: GPIO)-> String
+    open func getMode(_ pin: GPIO)-> String
     {
         return Manager.sharedInstance.getMode(username, password: password, ip: IP, port: port, pin: pin)
     }
     
-    public func getValue(pin: GPIO)-> String
+    open func getValue(_ pin: GPIO)-> String
     {
         return Manager.sharedInstance.getValue(username, password: password, ip: IP, port: port, pin: pin)
     }
     
-    public func setValue(pin: GPIO, value: VALUE)-> String
+    open func setValue(_ pin: GPIO, value: VALUE)-> String
     {
         return Manager.sharedInstance.setValue(username, password: password, ip: IP, port: port, pin: pin, value: value)
     }
     
     //Asynchronous calls
-    public func setModeInBackground(pin: GPIO, mode: MODE, onCompletion: ((result:String?) -> Void)!)
+    open func setModeInBackground(_ pin: GPIO, mode: MODE, onCompletion: ((_ result:String?) -> Void)!)
     {
         Manager.sharedInstance.setModeInBackground(username, password: password, ip: IP, port: port, pin: pin, state: mode, onCompletion: onCompletion)
     }
  
-    public func getModeInBackground(pin: GPIO, onCompletion: ((result:String?) -> Void)!)
+    open func getModeInBackground(_ pin: GPIO, onCompletion: ((_ result:String?) -> Void)!)
     {
        Manager.sharedInstance.getModeInBackground(username, password: password, ip: IP, port: port, pin: pin, onCompletion: onCompletion)
     }
     
-    public func getValueInBackground(pin: GPIO, onCompletion: ((result:String?) -> Void)!)
+    open func getValueInBackground(_ pin: GPIO, onCompletion: ((_ result:String?) -> Void)!)
     {
         Manager.sharedInstance.getValueInBackground(username, password: password, ip: IP, port: port, pin: pin, onCompletion: onCompletion)
     }
     
-    public func setValueInBackground(pin: GPIO, value: VALUE, onCompletion: ((result:String?) -> Void)!)
+    open func setValueInBackground(_ pin: GPIO, value: VALUE, onCompletion: ((_ result:String?) -> Void)!)
     {
         Manager.sharedInstance.setValueInBackground(username, password: password, ip: IP, port: port, pin: pin, value: value, onCompletion: onCompletion)
     }

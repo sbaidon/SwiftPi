@@ -11,25 +11,25 @@ import Foundation
 
 class Manager {
     static let sharedInstance = Manager()
-    private init() {} //This prevents others from using the default '()' initializer for this class.
+    fileprivate init() {} //This prevents others from using the default '()' initializer for this class.
     
-    func errorAlert(message: String)
+    func errorAlert(_ message: String)
     {
         let alert = UIAlertView(title: "ERROR", message: message, delegate: self, cancelButtonTitle: "OK")
         alert.show()
     }
     
-    func loginString (username: String, password: String) -> String
+    func loginString (_ username: String, password: String) -> String
     {
         // set up the base64-encoded credentials
         let loginString = NSString(format: "%@:%@", username, password)
-        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64LoginString = loginData.base64EncodedStringWithOptions([])
+        let loginData: Data = loginString.data(using: String.Encoding.utf8.rawValue)! as Data
+        let base64LoginString = loginData.base64EncodedString(options: [])
         return base64LoginString
     }
     
     
-    func httpRequest (isValue: Bool,username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, state: SwiftPi.MODE?, value: SwiftPi.VALUE?) -> NSURLRequest
+    func httpRequest (_ isValue: Bool,username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, state: SwiftPi.MODE?, value: SwiftPi.VALUE?) -> URLRequest
     {
         
         var action = ""
@@ -61,20 +61,20 @@ class Manager {
             }
             
         }
-        let url = NSURL(string: urlStr)
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = action
+        let url = URL(string: urlStr)
+        let request = NSMutableURLRequest(url: url! as URL)
+        request.httpMethod = action
         request.setValue("Basic \(loginString(username, password: password))", forHTTPHeaderField: "Authorization")
-        return request
+        return request as URLRequest
     }
     
-    func fireRequest(request:NSURLRequest) -> String {
+    func fireRequest(_ request:URLRequest) -> String {
         var responseString:NSString! = "Error"
         // fire off the request
-        var response: NSURLResponse?
+        var response: URLResponse?
         do {
-            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-            responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            let data = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: &response)
+            responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             print("responseString = \(responseString!)")
             return responseString as String
         } catch (let e) {
@@ -84,29 +84,33 @@ class Manager {
         }
     }
     
-    func httpRequestInBackground(request: NSURLRequest, onCompletion: ((result:String?) -> Void)!)
+    func httpRequestInBackground(_ request: URLRequest, onCompletion: ((_ result:String?) -> Void)!)
     {
         
-        NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+        URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             
             if ( (data) != nil ) {
-                let res = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                let res = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print("result = \(res!)")
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        onCompletion(result: res as? String)
+                
+                DispatchQueue.global().async {
+                    DispatchQueue.main.async {
+                        onCompletion(res as? String)
                     }
                 }
+                
+                
+                
             }
             else {
-                onCompletion(result: nil)
+                onCompletion(nil)
             }
             
             }.resume()
     }
 
     
-    func getMode(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO) -> String
+    func getMode(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO) -> String
     {
         // create the request
         let request = httpRequest(false, username:username, password: password, ip: ip, port: port,pin:pin,state: nil, value: nil)
@@ -115,7 +119,7 @@ class Manager {
         return response
     }
     
-    func setMode(username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.MODE ) -> String
+    func setMode(_ username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.MODE ) -> String
     {
         // create the request
         let request = httpRequest(false,username:username, password: password, ip: ip, port: port, pin: pin, state: state, value: nil)
@@ -124,7 +128,7 @@ class Manager {
         return response
     }
     
-    func getValue(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO)-> String
+    func getValue(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO)-> String
     {
         // create the request
         let request = httpRequest(true, username:username, password: password, ip: ip, port: port,pin:pin,state: nil, value: nil)
@@ -133,7 +137,7 @@ class Manager {
         return response
     }
     
-    func setValue(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.VALUE)-> String
+    func setValue(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.VALUE)-> String
     {
         // create the request
         let request = httpRequest(false, username:username, password: password, ip: ip, port: port,pin:pin,state: nil, value: value)
@@ -142,7 +146,7 @@ class Manager {
         return response
     }
     
-    func setModeInBackground(username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.MODE, onCompletion: ((result:String?) -> Void)!)
+    func setModeInBackground(_ username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.MODE, onCompletion: ((_ result:String?) -> Void)!)
     {
         
         // create the request
@@ -151,7 +155,7 @@ class Manager {
         httpRequestInBackground(request, onCompletion: onCompletion)
     }
     
-    func getModeInBackground(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, onCompletion: ((result:String?) -> Void)!)
+    func getModeInBackground(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, onCompletion: ((_ result:String?) -> Void)!)
     {
         
         // create the request
@@ -160,7 +164,7 @@ class Manager {
         httpRequestInBackground(request, onCompletion: onCompletion)
     }
     
-    func getValueInBackground(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, onCompletion: ((result:String?) -> Void)!)
+    func getValueInBackground(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, onCompletion: ((_ result:String?) -> Void)!)
     {
         
         // create the request
@@ -169,7 +173,7 @@ class Manager {
         httpRequestInBackground(request, onCompletion: onCompletion)
     }
     
-    func setValueInBackground(username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.VALUE, onCompletion: ((result:String?) -> Void)!)
+    func setValueInBackground(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.VALUE, onCompletion: ((_ result:String?) -> Void)!)
     {
         
         // create the request

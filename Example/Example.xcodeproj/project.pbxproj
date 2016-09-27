@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C09283A1D9AE40100E4D4CE /* SwiftPi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFF3E391D6E7262005753FF /* SwiftPi.framework */; };
+		9C09283B1D9AE40100E4D4CE /* SwiftPi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFF3E391D6E7262005753FF /* SwiftPi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CFF3E061D6E721B005753FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3E051D6E721B005753FF /* AppDelegate.swift */; };
 		9CFF3E0B1D6E721B005753FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFF3E091D6E721B005753FF /* Main.storyboard */; };
 		9CFF3E0D1D6E721B005753FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFF3E0C1D6E721B005753FF /* Assets.xcassets */; };
@@ -15,11 +17,16 @@
 		9CFF3E261D6E721B005753FF /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3E251D6E721B005753FF /* ExampleUITests.swift */; };
 		9CFF3E531D6E86F4005753FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3E521D6E86F4005753FF /* ViewController.swift */; };
 		9CFF3E561D6E873A005753FF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF3E551D6E873A005753FF /* TestViewController.swift */; };
-		9CFF3E571D6E88CE005753FF /* SwiftPi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFF3E391D6E7262005753FF /* SwiftPi.framework */; };
-		9CFF3E581D6E88CE005753FF /* SwiftPi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFF3E391D6E7262005753FF /* SwiftPi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9C09283C1D9AE40100E4D4CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CFF3E331D6E7262005753FF /* SwiftPi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CFF3DD91D6CD052005753FF;
+			remoteInfo = SwiftPi;
+		};
 		9CFF3E171D6E721B005753FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CFF3DFA1D6E721B005753FF /* Project object */;
@@ -48,13 +55,6 @@
 			remoteGlobalIDString = 9CFF3DE41D6CD052005753FF;
 			remoteInfo = SwiftPiTests;
 		};
-		9CFF3E4C1D6E8325005753FF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9CFF3E331D6E7262005753FF /* SwiftPi.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9CFF3DD91D6CD052005753FF;
-			remoteInfo = SwiftPi;
-		};
 		9CFF3E591D6E88CE005753FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CFF3E331D6E7262005753FF /* SwiftPi.xcodeproj */;
@@ -65,16 +65,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9CFF3E5B1D6E88CE005753FF /* Embed Frameworks */ = {
+		9C09283E1D9AE40100E4D4CE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9CFF3E581D6E88CE005753FF /* SwiftPi.framework in Embed Frameworks */,
+				9C09283B1D9AE40100E4D4CE /* SwiftPi.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CFF3E571D6E88CE005753FF /* SwiftPi.framework in Frameworks */,
+				9C09283A1D9AE40100E4D4CE /* SwiftPi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,13 +194,13 @@
 				9CFF3DFE1D6E721B005753FF /* Sources */,
 				9CFF3DFF1D6E721B005753FF /* Frameworks */,
 				9CFF3E001D6E721B005753FF /* Resources */,
-				9CFF3E5B1D6E88CE005753FF /* Embed Frameworks */,
+				9C09283E1D9AE40100E4D4CE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9CFF3E4D1D6E8325005753FF /* PBXTargetDependency */,
 				9CFF3E5A1D6E88CE005753FF /* PBXTargetDependency */,
+				9C09283D1D9AE40100E4D4CE /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -255,13 +255,17 @@
 				TargetAttributes = {
 					9CFF3E011D6E721B005753FF = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = H9SZPBU2NR;
+						LastSwiftMigration = 0800;
 					};
 					9CFF3E151D6E721B005753FF = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 9CFF3E011D6E721B005753FF;
 					};
 					9CFF3E201D6E721B005753FF = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 9CFF3E011D6E721B005753FF;
 					};
 				};
@@ -366,6 +370,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9C09283D1D9AE40100E4D4CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftPi;
+			targetProxy = 9C09283C1D9AE40100E4D4CE /* PBXContainerItemProxy */;
+		};
 		9CFF3E181D6E721B005753FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9CFF3E011D6E721B005753FF /* Example */;
@@ -375,11 +384,6 @@
 			isa = PBXTargetDependency;
 			target = 9CFF3E011D6E721B005753FF /* Example */;
 			targetProxy = 9CFF3E221D6E721B005753FF /* PBXContainerItemProxy */;
-		};
-		9CFF3E4D1D6E8325005753FF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftPi;
-			targetProxy = 9CFF3E4C1D6E8325005753FF /* PBXContainerItemProxy */;
 		};
 		9CFF3E5A1D6E88CE005753FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -496,26 +500,32 @@
 		9CFF3E2B1D6E721B005753FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H9SZPBU2NR;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		9CFF3E2C1D6E721B005753FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H9SZPBU2NR;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -527,6 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.ExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Debug;
@@ -539,6 +550,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.ExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
@@ -550,6 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.ExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Example;
 			};
 			name = Debug;
@@ -561,6 +574,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.ExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Example;
 			};
 			name = Release;

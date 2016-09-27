@@ -18,7 +18,7 @@ class TestViewController: UIViewController {
     
     @IBOutlet weak var swValue: UISwitch!
     
-    @IBAction func getMode(sender: AnyObject) {
+    @IBAction func getMode(_ sender: AnyObject) {
         // set up the base64-encoded credentials
         
         swiftPi.getModeInBackground(.TWO){ (result) -> Void in
@@ -31,9 +31,9 @@ class TestViewController: UIViewController {
         lblMode.text = "Cargando..."
     }
     
-    @IBAction func valueChanged(sender: AnyObject)
+    @IBAction func valueChanged(_ sender: AnyObject)
     {
-        if swValue.on
+        if swValue.isOn
         {
             swiftPi.setValueInBackground(.TWO, value: .ON) { (result) -> Void in
                 if let res = result {
@@ -57,7 +57,7 @@ class TestViewController: UIViewController {
         lblValue.text = "Cargando..."
     }
     
-    @IBAction func setMode(sender: AnyObject) {
+    @IBAction func setMode(_ sender: AnyObject) {
         // set up the base64-encoded credentials
         var state:SwiftPi.MODE
         switch swMode.selectedSegmentIndex {

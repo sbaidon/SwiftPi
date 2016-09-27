@@ -169,6 +169,7 @@
 				TargetAttributes = {
 					9CFF3DD91D6CD052005753FF = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					9CFF3DE31D6CD052005753FF = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -347,6 +348,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -365,6 +367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tonio43.SwiftPi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
