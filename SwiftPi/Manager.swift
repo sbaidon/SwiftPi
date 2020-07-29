@@ -15,8 +15,8 @@ class Manager {
     
     func errorAlert(_ message: String)
     {
-        let alert = UIAlertView(title: "ERROR", message: message, delegate: self, cancelButtonTitle: "OK")
-        alert.show()
+//        let alert = UIAlertView(title: "ERROR", message: message, delegate: self, cancelButtonTitle: "OK")
+//        alert.show()
     }
     
     func loginString (_ username: String, password: String) -> String
