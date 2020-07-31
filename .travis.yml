@@ -12,5 +12,3 @@ xcode_destination: platform=iOS Simulator,OS=13.6,name=iPhone 11
 # before_install:
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
-script:
-- pod lib lint --verbose
