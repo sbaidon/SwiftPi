@@ -29,7 +29,7 @@ class Manager {
     }
     
     
-    func httpRequest (_ isValue: Bool,username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, state: SwiftPi.MODE?, value: SwiftPi.VALUE?) -> URLRequest
+    func httpRequest (_ isValue: Bool,username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, state: SwiftPi.Mode?, value: SwiftPi.Value?) -> URLRequest
     {
         
         var action = ""
@@ -119,7 +119,7 @@ class Manager {
         return response
     }
     
-    func setMode(_ username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.MODE ) -> String
+    func setMode(_ username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.Mode ) -> String
     {
         // create the request
         let request = httpRequest(false,username:username, password: password, ip: ip, port: port, pin: pin, state: state, value: nil)
@@ -137,7 +137,7 @@ class Manager {
         return response
     }
     
-    func setValue(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.VALUE)-> String
+    func setValue(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.Value)-> String
     {
         // create the request
         let request = httpRequest(false, username:username, password: password, ip: ip, port: port,pin:pin,state: nil, value: value)
@@ -146,7 +146,7 @@ class Manager {
         return response
     }
     
-    func setModeInBackground(_ username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.MODE, onCompletion: ((_ result:String?) -> Void)!)
+    func setModeInBackground(_ username: String, password: String, ip: String, port :String,pin: SwiftPi.GPIO, state: SwiftPi.Mode, onCompletion: ((_ result:String?) -> Void)!)
     {
         
         // create the request
@@ -173,7 +173,7 @@ class Manager {
         httpRequestInBackground(request, onCompletion: onCompletion)
     }
     
-    func setValueInBackground(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.VALUE, onCompletion: ((_ result:String?) -> Void)!)
+    func setValueInBackground(_ username: String, password: String, ip: String, port :String, pin: SwiftPi.GPIO, value: SwiftPi.Value, onCompletion: ((_ result:String?) -> Void)!)
     {
         
         // create the request

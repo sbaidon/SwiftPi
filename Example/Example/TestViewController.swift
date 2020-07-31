@@ -10,7 +10,7 @@ import UIKit
 import SwiftPi
 
 class TestViewController: UIViewController {
-    let swiftPi = SwiftPi(username:"webiopi", password: "raspberry", ip:"10.33.10.18", port: "8000")
+    let swiftPi = SwiftPi(username:"webiopi", password: "raspberry", ip: "10.33.10.18", port: "8000")
     @IBOutlet weak var lblMode: UILabel!
     
     @IBOutlet weak var lblValue: UILabel!
@@ -21,7 +21,7 @@ class TestViewController: UIViewController {
     @IBAction func getMode(_ sender: AnyObject) {
         // set up the base64-encoded credentials
         
-        swiftPi.getModeInBackground(.TWO){ (result) -> Void in
+        swiftPi.getModeInBackground(.two){ (result) -> Void in
             if let res = result {
                 print(res)
                 self.lblMode.text = res
@@ -35,7 +35,7 @@ class TestViewController: UIViewController {
     {
         if swValue.isOn
         {
-            swiftPi.setValueInBackground(.TWO, value: .ON) { (result) -> Void in
+            swiftPi.setValueInBackground(.two, value: .on) { (result) -> Void in
                 if let res = result {
                     print(res)
                     self.lblValue.text = res
@@ -46,7 +46,7 @@ class TestViewController: UIViewController {
         }
         else
         {
-            swiftPi.setValueInBackground(.TWO, value: .OFF) { (result) -> Void in
+            swiftPi.setValueInBackground(.two, value: .off) { (result) -> Void in
                 if let res = result {
                     print(res)
                     self.lblValue.text = res
@@ -59,20 +59,20 @@ class TestViewController: UIViewController {
     
     @IBAction func setMode(_ sender: AnyObject) {
         // set up the base64-encoded credentials
-        var state:SwiftPi.MODE
+        var state: SwiftPi.Mode
         switch swMode.selectedSegmentIndex {
         case 0:
-            state = .IN
+            state = .in
         case 1:
-            state = .OUT
+            state = .out
         case 2:
-            state = .OUT
+            state = .out
         default:
-            state = .IN
+            state = .in
         }
         print(state)
         
-        swiftPi.setModeInBackground(.TWO, mode: state){ (result) -> Void in
+        swiftPi.setModeInBackground(.two, mode: state){ (result) -> Void in
             if let res = result {
                 print(res)
                 self.lblMode.text = res
